@@ -3,15 +3,14 @@
  * @return {boolean}
  */
 var canVisitAllRooms = function(rooms) {
-    let queue = [];
+    let stack = [];
     let isVisited={0:true}
     
-
-    queue.push(...rooms[0])
-    while(queue.length>0){
-        let nextVisit = queue.pop()
+    stack.push(...rooms[0])
+    while(stack.length>0){
+        let nextVisit = stack.pop()
         if(!isVisited[nextVisit]){
-            queue.push(...rooms[nextVisit])
+            stack.push(...rooms[nextVisit])
             isVisited[nextVisit] = true
         }
     }
