@@ -3,22 +3,17 @@
  * @return {boolean}
  */
 var canJump = function(nums) {
-    const map = new Map()
-    return moveJump(0)
+    let flag = false;
     
+    let numOfSteps = 0;
     
-    function moveJump(num){
-        if(map.has(num)) return map.get(num)
-        
-        if(num>=nums.length) return false
-        if(num===nums.length-1) return true
-        
-        for(let i=1;i<=nums[num];i++){
-            if(num+i < nums.length && moveJump(num+i)){
-                return true
-            }
+    for(let i=0;i<nums.length;i++){
+        if(numOfSteps<0) return false
+        if(i===nums.length-1 && numOfSteps>=0){
+            flag = true
         }
-        map.set(num,false)
-        return false
+        numOfSteps=Math.max(nums[i],numOfSteps)
+        numOfSteps--;
     }
+    return flag
 };
