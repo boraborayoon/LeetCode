@@ -3,10 +3,6 @@
  * @return {number[][]}
  */
 var allPathsSourceTarget = function(graph) {
-    // const matrixGraph={};
-    // for(let i=0;i<graph.length;i++){
-    //     matrixGraph[i]=graph[i]
-    // }
     const queue = [[0,[0]]]
     const answer = [];
     
